@@ -9,7 +9,7 @@ This package provides a collection of custom icons for Laravel Blade. It is base
 ## Requirements
 
 - PHP 8.2 or higher
-- Laravel 10.0 or higher
+- Laravel 11.x or higher
 
 ## Installation
 
