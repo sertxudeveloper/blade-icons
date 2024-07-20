@@ -4,4 +4,4 @@ on: [push]
 
 jobs:
   lint:
-    uses: laravel/.github/.github/workflows/coding-standards.yml@main
+    uses: sertxudeveloper/.github/.github/workflows/coding-standards.yml@main
