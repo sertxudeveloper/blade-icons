@@ -2,7 +2,7 @@
 
 # Blade Icons - Sertxu's Collection
 
-![](https://img.shields.io/github/v/release/sertxudeveloper/blade-icons) ![](https://github.com/sertxudeveloper/blade-icons/actions/workflows/run-tests.yml/badge.svg) ![](https://img.shields.io/github/license/sertxudeveloper/blade-icons) ![](https://img.shields.io/github/repo-size/sertxudeveloper/blade-icons) ![](https://img.shields.io/packagist/dt/sertxudeveloper/blade-icons) ![](https://img.shields.io/github/issues/sertxudeveloper/blade-icons) ![](https://img.shields.io/packagist/php-v/sertxudeveloper/blade-icons) [![Codecov Test coverage](https://img.shields.io/codecov/c/github/sertxudeveloper/blade-icons)](https://app.codecov.io/gh/sertxudeveloper/blade-icons)
+![](https://img.shields.io/github/v/release/sertxudeveloper/blade-icons) ![](https://github.com/sertxudeveloper/blade-icons/actions/workflows/tests.yml/badge.svg) ![](https://img.shields.io/github/license/sertxudeveloper/blade-icons) ![](https://img.shields.io/github/repo-size/sertxudeveloper/blade-icons) ![](https://img.shields.io/packagist/dt/sertxudeveloper/blade-icons) ![](https://img.shields.io/github/issues/sertxudeveloper/blade-icons) ![](https://img.shields.io/packagist/php-v/sertxudeveloper/blade-icons) [![Codecov Test coverage](https://img.shields.io/codecov/c/github/sertxudeveloper/blade-icons)](https://app.codecov.io/gh/sertxudeveloper/blade-icons)
 
 This package provides a collection of custom icons for Laravel Blade. It is based on Blade Icons from Blade UI Kit.
 
