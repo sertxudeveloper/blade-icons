@@ -9,18 +9,20 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
+  ubuntu-latest:
+    runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        php: [8.2, 8.3]
-        laravel: [11]
+        php: [8.1, 8.2, 8.3]
+        laravel: [10]
         coverage-driver: [pcov]
         stability: [prefer-lowest, prefer-stable]
+        exclude:
+          - laravel: '11'
+            php: 8.1
 
-    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.stability }}
+    name: Ubuntu - P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
 
     steps:
       - name: Checkout code
@@ -33,9 +35,56 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip
           coverage: ${{ matrix.coverage-driver }}
 
+      - name: Setup problem matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
       - name: Install dependencies
         run: |
           composer require "illuminate/contracts=^${{ matrix.laravel }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+
+      - name: Execute tests
+        run: composer test --coverage-clover=coverage.xml
+
+      - name: Send code coverage report to Codecov.io
+        uses: codecov/codecov-action@v4
+
+  windows-latest:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [8.1, 8.2, 8.3]
+        laravel: [10, '11']
+        coverage-driver: [pcov]
+        stability: [prefer-lowest, prefer-stable]
+        exclude:
+          - laravel: '11'
+            php: 8.1
+
+    name: Windows - P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip
+          coverage: ${{ matrix.coverage-driver }}
+
+      - name: Setup problem matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Install dependencies
+        run: |
+          composer require "illuminate/contracts=${{ matrix.laravel }}.*" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
