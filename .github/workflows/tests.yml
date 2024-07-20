@@ -20,7 +20,7 @@ jobs:
         coverage-driver: [pcov]
         stability: [prefer-lowest, prefer-stable]
 
-    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - OS ${{ matrix.os }} - ${{ matrix.stability }}
+    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.stability }}
 
     steps:
       - name: Checkout code
