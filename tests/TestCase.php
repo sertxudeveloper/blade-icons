@@ -3,9 +3,8 @@
 namespace Tests;
 
 use BladeUI\Icons\BladeIconsServiceProvider;
-use SertxuDeveloper\Icons\IconsServiceProvider;
-
 use Orchestra\Testbench\TestCase as Orchestra;
+use SertxuDeveloper\Icons\IconsServiceProvider;
 
 class TestCase extends Orchestra
 {
