@@ -1,0 +1,53 @@
+{
+    "name": "sertxudeveloper/icons",
+    "description": "Custom icons for Laravel Blade",
+    "keywords": ["Sertxu Developer", "Icons"],
+    "homepage": "https://github.com/sertxudeveloper/blade-icons",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergio Peris",
+            "email": "dev.sertxu@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "blade-ui-kit/blade-icons": "^1.4",
+        "illuminate/support": "^10.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.13",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.34"
+    },
+    "autoload": {
+        "psr-4": {
+            "SertxuDeveloper\\Icons\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SertxuDeveloper\\Icons\\IconsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
