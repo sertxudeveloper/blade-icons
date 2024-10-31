@@ -1,0 +1,7 @@
+name: Coding Standards
+
+on: [push]
+
+jobs:
+  lint:
+    uses: sertxudeveloper/.github/.github/workflows/php-coding-standards.yml@main
